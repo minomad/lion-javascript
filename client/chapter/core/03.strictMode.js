@@ -11,4 +11,6 @@ let jujeob = '심선범 넌 뭐랄까.. 마치 베를린 같아. 왜냐하면 �
 console.log(jujeob);
 
 // #2
-// console.log(this);
+console.log(this,self,window,globalThis);
+
+function sum{}
