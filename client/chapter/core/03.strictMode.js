@@ -12,5 +12,3 @@ console.log(jujeob);
 
 // #2
 console.log(this,self,window,globalThis);
-
-function sum{}
