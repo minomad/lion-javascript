@@ -16,7 +16,7 @@ let resultZ = calculateTotal(9000, -2500, 5000, 11900);
 // console.log(resultZ);
 
 
-// 함수 선언 → 화살표 함수 (표현)식
+//* 함수 선언 → 화살표 함수 (표현)식
 //                   rest parameter
 let calcAllMoney = (a,b,...args)=>{
 

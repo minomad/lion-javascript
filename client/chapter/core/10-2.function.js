@@ -21,32 +21,32 @@ const resultZ = calcTotal(9000, -2500, 5000, 11900);
 let calculateTotal = function (){
 
   // console.log( arguments );
-  // 함수 안에서만 접근 가능한 인수들의 집합 객체로서 배열과 유사한 형태를 가지고 있는 이것은 ? : arguments
+  //* 함수 안에서만 접근 가능한 인수들의 집합 객체로서 배열과 유사한 형태를 가지고 있는 이것은 ? : arguments
 
   // arguments 객체를 사용해 함수의 매개변수 없이 아이템의 총합을 구해보자!
   
   let total = 0;
 
-  // 1. for 문
-  // for(let i = 0; i < arguments.length; i++){
-  //   total += arguments[i];
-  // }
+  //* 1. for 문
+  for(let i = 0; i < arguments.length; i++){
+    total += arguments[i];
+  }
 
-  // 2. for..of 문
+  //* 2. for..of 문
   // for(let key of arguments){
-    // total += key;
+  //   total += key;
   // }
 
   // arguments.forEach((item)=>{
   //   console.log( item );
   // })
 
-  // 3. forEach 빌려쓰기
+  //* 3. forEach 빌려쓰기
   // Array.prototype.forEach.call(arguments,function(item){
     // total += item;
   // })
 
-  // 4. slice 를 빌려써서 배열로 만들기 
+  //* 4. slice 를 빌려써서 배열로 만들기 
 
   // let realArray = Array.prototype.slice.call(arguments);
 
@@ -56,18 +56,18 @@ let calculateTotal = function (){
   //   total += item;
   // })
 
-  // 5. Array.from()
+  //* 5. Array.from()
   // let realArray = Array.from(arguments);
   // console.log(realArray);
   // realArray.forEach(function(item){
   //   total += item;
   // })
 
-  let arr = [10,50,100];
+  // let arr = [10,50,100];
 
-  // 6. spread syntax
+  //* 6. spread syntax
   // let realArray = [...arguments,...arr];
-  let realArray = [...arguments];
+  // let realArray = [...arguments];
 
   
   // console.log(realArray);
@@ -77,11 +77,11 @@ let calculateTotal = function (){
   // })
 
 
-  // 7. Array.reduce 
+  //* 7. Array.reduce 
 
-  total = realArray.reduce((acc,item)=> acc + item ,0);
+  // total = realArray.reduce((acc,item)=> acc + item ,0);
 
-  return realArray.reduce((acc,item)=> acc + item ,0)
+  // return realArray.reduce((acc,item)=> acc + item ,0)
 
 
   // Object.prototype.toString()
