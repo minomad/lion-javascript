@@ -2,7 +2,6 @@
 /* Number Type             */
 /* ----------------------- */
 
-
 // 1억 (million)
 // 0의 갯수가 많아 금액을 쉽게 파악하기 어렵습니다.
 let riches = 100000000;
@@ -24,61 +23,52 @@ riches = 1e-6; // → 1 / 10 ** 6
 
 /* 어림수 ---------------------------------------------------------------- */
 
-
-
 let number = 90_127.13100032;
 
 // 내림
 let floor = Math.floor(number);
-console.log('floor : ',floor)
+console.log('floor : ', floor);
 
 // 반올림
 let round = Math.round(number);
-console.log('round : ',round)
+console.log('round : ', round);
 
 // 올림
 let ceil = Math.ceil(number);
-console.log('ceil : ',ceil)
+console.log('ceil : ', ceil);
 
 // 절삭(소수점 이하)
 let truncate = Math.trunc(number);
-console.log('truncate : ',truncate)
+console.log('truncate : ', truncate);
 
 // 난수
 let random = Math.floor(Math.random() * 10);
-console.log('random : ',random)
+console.log('random : ', random);
 
 // 여러 수 중, 최댓값
-let max = Math.max(10,100,1000,123,5555);
+let max = Math.max(10, 100, 1000, 123, 5555);
 
-console.log('max : ',max)
+console.log('max : ', max);
 
 // 여러 수 중, 최솟값
-let min = Math.min(10,-10,-100,123,10000);
-console.log('min : ',min)
-
+let min = Math.min(10, -10, -100, 123, 10000);
+console.log('min : ', min);
 
 // 거듭제곱
-let pow = Math.pow(2,53);
-console.log('pow : ',pow)
-
+let pow = Math.pow(2, 53);
+console.log('pow : ', pow);
 
 // 절댓값
 let abs = Math.abs(-1);
-console.log('abs : ',abs)
-
+console.log('abs : ', abs);
 
 // 최소, 최대 값 사이 난수 반환 함수
-let getRandomMinMax = (min,max)=>{
-  if(min > max) throw new Error('최솟값은 최댓값보다 작아야 합니다.');
-  return Math.round(Math.random() * (max-min) + min)
+let getRandomMinMax = (min, max) => {
+  if (min > max) throw new Error('최솟값은 최댓값보다 작아야 합니다.');
+  return Math.round(Math.random() * (max - min) + min);
 };
 
-
-
-
-
-getRandomMinMax(5,10) // 5 ~ 10 사이의 난수를 반환
+getRandomMinMax(5, 10); // 5 ~ 10 사이의 난수를 반환
 
 /* 진법 ------------------------------------------------------------------ */
 
@@ -88,7 +78,6 @@ getRandomMinMax(5,10) // 5 ~ 10 사이의 난수를 반환
 
 // parseInt(string, base) → 진수 2 <= base <= 36
 // number.toString(base) → base 진수 변환 후 문자 값 반환
-
 
 /* 컬러 변환 -------------------------------------------------------------- */
 
