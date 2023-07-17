@@ -24,5 +24,8 @@ module.exports = {
     },
     "rules": {
         "no-unused-vars": "warn"
+    },
+    globals:{
+        getNode:'readOnly',
     }
 }
