@@ -48,3 +48,4 @@ console.log(getComputedStyle(first).getPropertyValue('font-size'));
 // setCss('.first','color','#fff');
 
 // console.log(css('.first', 'background-color', 'red'));
+css('.first','font-size');
