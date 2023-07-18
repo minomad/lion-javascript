@@ -62,6 +62,9 @@ for (const [key, value] of urlParams) {
 // language : 브라우저에서 사용되는 언어를 반환
 // onLine : 브라우저가 온라인인지 여부를 반환
 // geolocation
+// location.replace() -> 원하는 링크로 이동(뒤로가기 불가)
+// location.href() -> 원하는 링크로 이동(뒤로가기 가능)
+// location.reload() -> 새로고침
 
 console.log();
 
@@ -122,6 +125,9 @@ function getLocationPosition() {
 // height: 모니터 사이즈
 // availHeight : 브라우저의 크기
 // innerHeight : 브라우저 해상도 크기
+// orientation : 모니터 방향
+// (정방향 : landscape-primary)
+// (세로방향 : portrait-primary)
 
 const { width, height, availWidth, availHeight, orientation } = screen;
 
