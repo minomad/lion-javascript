@@ -28,6 +28,10 @@ addClass('.first', 'hello');
 
 // attr(first,'class',' ');
 
+
+
+
+
 /* 스타일 변경 방법 --------------------------------------------------------- */
 
 // first.style.backgroundColor = 'orange'; // setter
@@ -39,8 +43,8 @@ addClass('.first', 'hello');
 
 // - getComputedStyle(element, [pseudoElement]) `읽기 전용`
 
-console.log(getComputedStyle(first).fontSize);
-console.log(getComputedStyle(first).getPropertyValue('font-size'));
+console.log(getComputedStyle(first).fontSize); // fontsize에 직접 접근
+console.log(getComputedStyle(first).getPropertyValue('font-size')); //getPropertyValue 메서드에 접근해서 값을 출력
 
 // 객체의 속성에 접근할 때 .표기법은 사용할 수 없다.
 // computed property [ ]

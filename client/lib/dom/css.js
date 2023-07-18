@@ -31,6 +31,7 @@ const toggleClass = (node, className) => {
 
 /* css ---------------------------------------------------------------------- */
 
+//@ css 추가 수정 (클래스/style/값)입력
 function setCss(node, prop, value) {
   if (typeof node === 'string') node = getNode(node);
 
@@ -43,6 +44,7 @@ function setCss(node, prop, value) {
   node.style[prop] = value;
 }
 
+//@ css 속성 값을 가져옴
 function getCss(node, prop) {
   if (typeof node === 'string') node = getNode(node);
 
@@ -56,4 +58,3 @@ function getCss(node, prop) {
 const css = (node, prop, value) => {
   return !value ? getCss(node, prop) : setCss(node, prop, value);
 };
-
