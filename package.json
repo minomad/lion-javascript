@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start":"live-server client --host=localhost --port=5500 --no-browser",
+    "start":"live-server client --host=127.0.0.1 --port=5500 --no-browser",
     "serve": "node server/index.js"
   },
   "devDependencies": {

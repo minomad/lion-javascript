@@ -30,8 +30,6 @@ addClass('.first', 'hello');
 
 
 
-
-
 /* 스타일 변경 방법 --------------------------------------------------------- */
 
 // first.style.backgroundColor = 'orange'; // setter
