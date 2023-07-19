@@ -10,12 +10,11 @@
 const container = getNode('.container');
 
 function handleDelegation(e) {
-  let target = e.target;
-  let className = attr(target,'class');
-  let dataName = attr(target, 'data-name');
-  
-  let li = target.closest('li');
 
+  let target = e.target;
+
+  // let className = attr(target,'class');
+  // let dataName = attr(target, 'data-name');
   // let className = target.getAttribute('class');
   // console.log(target.getAttribute('class'));
   // if (target.getAttribute('class') === 'a') {
@@ -34,8 +33,19 @@ function handleDelegation(e) {
   //   console.log('D 버튼 클릭!');
   //   }
 
-  console.log(li);
+  //@ closest 활용
+  let li = target.closest('li');
+
+  if(!li) return;
+
+  let className = attr(li,'class');
+  let dataName = attr(li,'data-name');
+
   
+  if(className === 'home'){
+    console.log('홈 실행!');
+  }
+
 }
 
 container.addEventListener('click', handleDelegation);
