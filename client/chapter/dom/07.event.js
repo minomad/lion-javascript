@@ -32,6 +32,7 @@
 // }
 
 //? 유틸함수 const remove = bindEvent('.first', 'click', handleClick);
+// 
 
 //! setTimeout(() => {
 //   // first.removeEventListener('click', handleClick);//@ 나에게 걸려 있는 핸들러이기에 제거 이벤트는 함수를 호출해야한다.
