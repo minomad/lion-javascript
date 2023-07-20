@@ -1,6 +1,31 @@
-import { attr, getNode } from './lib';
+
+import { getNode } from './lib/index.js'
 
 
 
-attr
-getNode
+// getNode()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
