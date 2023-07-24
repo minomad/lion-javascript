@@ -1,3 +1,9 @@
-console.log(a);
 
-const a = 10;
+
+import { diceAnimation } from "./lib/index.js";
+
+
+
+
+diceAnimation()
+
