@@ -1,4 +1,16 @@
-import { attr, clearContents, diceAnimation, endScroll, getNode, getNodes, insertLast } from './lib/index.js';
+import {
+  attr,
+  clearContents,
+  diceAnimation,
+  disableElement,
+  enableElement,
+  endScroll,
+  getNode,
+  getNodes,
+  insertLast,
+  invisibleElement,
+  visibleElement,
+} from './lib/index.js';
 
 // [phase-1] 주사위 굴리기
 // 1. dice animation 불러오기
@@ -29,7 +41,6 @@ const [startButton, recordButton, resetButton] = getNodes('.buttonGroup > button
 const recordListWrapper = getNode('.recordListWrapper');
 const tbody = getNode('.recordList tbody');
 
-
 let count = 0;
 let total = 0;
 
@@ -53,13 +64,6 @@ function renderRecordItem() {
   endScroll(recordListWrapper);
 }
 
-const disableElement = (node, value) => {
-  node.disabled = value;
-};
-const visibleElement = (node, value) => {
-  node.hidden = value;
-};
-
 const handleRollingDice = (() => {
   let isClicked = false;
   let stopAnimation;
@@ -69,13 +73,13 @@ const handleRollingDice = (() => {
     if (!isClicked) {
       // 주사위 play
       stopAnimation = setInterval(diceAnimation, 100);
-      disableElement(recordButton, true);
-      disableElement(resetButton, true);
+      disableElement(recordButton);
+      disableElement(resetButton);
     } else {
       // 주사위 stop
       clearInterval(stopAnimation);
-      disableElement(recordButton, false);
-      disableElement(resetButton, false);
+      enableElement(recordButton);
+      enableElement(resetButton);
     }
 
     isClicked = !isClicked;
@@ -83,14 +87,14 @@ const handleRollingDice = (() => {
 })(); //IIFE
 
 function handleRecord() {
-  visibleElement(recordListWrapper, false);
+  visibleElement(recordListWrapper);
   renderRecordItem();
 }
 
 function handleReset() {
-  visibleElement(recordListWrapper, true);
-  disableElement(recordButton, true);
-  disableElement(resetButton, true);
+  invisibleElement(recordListWrapper);
+  disableElement(recordButton);
+  disableElement(resetButton);
 
   clearContents(tbody);
 
@@ -101,7 +105,3 @@ function handleReset() {
 startButton.addEventListener('click', handleRollingDice);
 recordButton.addEventListener('click', handleRecord);
 resetButton.addEventListener('click', handleReset);
-//?쉬운 과제
-// isDisableState(node)  => true / false
-
-// isVisibleState(node) => true / false
