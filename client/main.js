@@ -13,8 +13,8 @@ import { attr, clearContents, diceAnimation, endScroll, getNode, getNodes, inser
 // 1. 주사위가 멈추면 기록/초기화 버튼 활성화
 // 2. hidden 속성 제어하기
 //       - 기록 버튼 이벤트 바인딩
-//       - hidden 속성 false 만들기 
-//       - 초기화 버튼 이벤트 바인딩 
+//       - hidden 속성 false 만들기
+//       - 초기화 버튼 이벤트 바인딩
 //       - hidden 속성 true 만들기
 // 3. 주사위 값을 가져와서 랜더링
 // 4. 스크롤 위치 내리기
@@ -29,14 +29,6 @@ const [startButton, recordButton, resetButton] = getNodes('.buttonGroup > button
 const recordListWrapper = getNode('.recordListWrapper');
 const tbody = getNode('.recordList tbody');
 
-//?쉬운 과제
-// disableElement(node)
-// enableElement(node)
-// isDisableState(node)  => true / false
-
-// visibleElement(node)
-// invisibleElement(node)
-// isVisibleState(node) => true / false
 
 let count = 0;
 let total = 0;
@@ -61,39 +53,46 @@ function renderRecordItem() {
   endScroll(recordListWrapper);
 }
 
+const disableElement = (node, value) => {
+  node.disabled = value;
+};
+const visibleElement = (node, value) => {
+  node.hidden = value;
+};
+
 const handleRollingDice = (() => {
   let isClicked = false;
   let stopAnimation;
 
-  return () => { //클로저
+  return () => {
+    //클로저
     if (!isClicked) {
       // 주사위 play
       stopAnimation = setInterval(diceAnimation, 100);
-      recordButton.disabled = true;
-      resetButton.disabled = true;
+      disableElement(recordButton, true);
+      disableElement(resetButton, true);
     } else {
       // 주사위 stop
       clearInterval(stopAnimation);
-      recordButton.disabled = false;
-      resetButton.disabled = false;
+      disableElement(recordButton, false);
+      disableElement(resetButton, false);
     }
 
     isClicked = !isClicked;
   };
-})();//IIFE
-
+})(); //IIFE
 
 function handleRecord() {
-  recordListWrapper.hidden = false;
+  visibleElement(recordListWrapper, false);
   renderRecordItem();
 }
 
 function handleReset() {
-  recordListWrapper.hidden = true;
-  recordButton.disabled = true;
-  resetButton.disabled = true;
-  
-  clearContents(tbody)
+  visibleElement(recordListWrapper, true);
+  disableElement(recordButton, true);
+  disableElement(resetButton, true);
+
+  clearContents(tbody);
 
   count = 0;
   total = 0;
@@ -102,3 +101,7 @@ function handleReset() {
 startButton.addEventListener('click', handleRollingDice);
 recordButton.addEventListener('click', handleRecord);
 resetButton.addEventListener('click', handleReset);
+//?쉬운 과제
+// isDisableState(node)  => true / false
+
+// isVisibleState(node) => true / false
