@@ -9,6 +9,7 @@ import {
   getNodes,
   insertLast,
   invisibleElement,
+  memo,
   visibleElement,
 } from './lib/index.js';
 
@@ -40,6 +41,7 @@ import {
 const [startButton, recordButton, resetButton] = getNodes('.buttonGroup > button');
 const recordListWrapper = getNode('.recordListWrapper');
 const tbody = getNode('.recordList tbody');
+memo('@tbody', () => getNode('.recordList tbody')); //setter
 
 let count = 0;
 let total = 0;
@@ -57,9 +59,9 @@ function createItem(value) {
 
 function renderRecordItem() {
   // 큐브의 data-dice 값 가져오기
-  const diceValue = +attr('#cube', 'data-dice');
+  const diceValue = +attr(memo('cube'), 'data-dice');
 
-  insertLast(tbody, createItem(diceValue));
+  insertLast(memo('@tbody'), createItem(diceValue));
 
   endScroll(recordListWrapper);
 }
@@ -96,7 +98,7 @@ function handleReset() {
   disableElement(recordButton);
   disableElement(resetButton);
 
-  clearContents(tbody);
+  clearContents(memo('@tbody'));
 
   count = 0;
   total = 0;
