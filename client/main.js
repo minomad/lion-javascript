@@ -1,1 +1,3 @@
-import {  } from "./lib/index.js";
+import { xhr } from "./lib/index.js";
+
+
