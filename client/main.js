@@ -1,3 +1,1 @@
-console.log(a);
-
-const a = 10;
+import {  } from "./lib/index.js";
