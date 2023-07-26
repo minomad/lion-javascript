@@ -6,6 +6,7 @@
 //   console.log(data);
 // }
 //https://jsonplaceholder.typicode.com/users
+
 const URL = 'https://pokeapi.co/api/v2/pokemon/133';
 
 const defaultOptions = {
@@ -47,6 +48,7 @@ const response = await pokemon({
 // get한 것을 다시 userData  에 할당하면 return response 값을 명시적으로 사용가능
 const userData = response.data;
 
+console.log(userData);
 console.log(userData.name);
 
 
