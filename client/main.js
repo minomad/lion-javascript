@@ -1,4 +1,4 @@
-import { pokemon, getNode as $, renderUserCard, changeColor, delayP, renderSpinner, renderEmpty, getNode, attr, removeClass } from './lib/index.js';
+import { pokemon, getNode as $, renderUserCard, changeColor, delayP, renderSpinner, renderEmpty, getNode, attr, removeClass, clearContents } from './lib/index.js';
 /*global gsap*/
 
 const userCardInner = $('.user-card-inner');
@@ -6,7 +6,7 @@ const userCardInner = $('.user-card-inner');
 async function renderUserList() {
   renderSpinner(userCardInner);
   try {
-    await delayP({ timeout: 1500 });
+    await delayP();//{ timeout: 1000 }
 
     gsap.to('.loadingSpinner', {
       opacity: 0,
@@ -15,7 +15,7 @@ async function renderUserList() {
       },
     });
 
-    const response = await pokemon.get('https://jsonplaceholder.typicode.com/users');
+    const response = await pokemon.get('http://localhost:3000/users');
 
     const userData = response.data;
 
@@ -45,7 +45,12 @@ function handleDelete(e) {
 
   const id = attr(article,'data-index').slice(5);
 
-  pokemon.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+  pokemon.delete(`http://localhost:3000/users/${id}`)
+  .then(() => {
+    //전체 지우고 도시 로드
+    clearContents(userCardInner);
+    renderUserList();
+  })
   
 }
 
