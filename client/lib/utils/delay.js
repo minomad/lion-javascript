@@ -37,7 +37,7 @@ const defaultOptions = {
   errorMessage: '알 수 없는 오류 발생',
 };
 
-function delayP(options) {
+export function delayP(options) {
   let config = { ...defaultOptions }; //얕은 복사로 실제 데이터에 접근 못 하도록 하기위함
 
   if (typeof options === 'number') {

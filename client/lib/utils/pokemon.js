@@ -30,7 +30,7 @@ export const pokemon = async (options) => {
 
   //fetch는 프라미스 객체를 포함하니깐 respone를 사용할 수 있고 프라미스 객체 값을 repone에 담는것
   const response = await fetch(url, restOptions); //xhr open 유사 응답기다리고 결과값 받아서 할당
-  console.log(response);
+  // console.log(response);
 
   if (response.ok) {//xhr status 200번대 //.json 서버 응답의 JSON 데이터를 파싱하여 JavaScript 객체로 변환
     response.data = await response.json(); //xhr response 객체에 .data key를 추가하고 거기에 값을 할당 []없애고 안에 객체들을 할당한다
