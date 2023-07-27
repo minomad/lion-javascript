@@ -40,16 +40,16 @@ export const pokemon = async (options) => {
 };
 
 // pokemon 함수는 프라미스를 담고 있는 함수니깐 awiat으로 get하고
-const response = await pokemon({
-  url: URL,
-  method: 'GET',
-});
+// const response = await pokemon({
+//   url: URL,
+//   method: 'GET',
+// });
 
-// get한 것을 다시 userData  에 할당하면 return response 값을 명시적으로 사용가능
-const userData = response.data;
+// // get한 것을 다시 userData  에 할당하면 return response 값을 명시적으로 사용가능
+// const userData = response.data;
 
-console.log(userData);
-console.log(userData.name);
+// console.log(userData);
+// console.log(userData.name);
 
 
 
@@ -86,7 +86,9 @@ pokemon.put = (url,body,options)=>{
     ...options
   })
 }
+// const data = await pokemon.get('https://jsonplaceholder.typicode.com/users');
 
+// console.log(data);
 // const data = await pokemon.get(URL);
 
 // console.log(data);
